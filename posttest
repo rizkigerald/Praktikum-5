@@ -1,0 +1,132 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+int  pil;
+double sel;
+
+
+void aritmatika (int A, int B, int N)
+{
+
+    int A1=0, A2, UN;
+
+    UN = A + ((N-1)* B);
+    cout << "Nilai pada deret ke-" << N << " adalah "<< UN<< endl;
+    for (int Z=0; Z<N; Z++)
+    {
+        cout << A + (Z*B) << " ";
+    }
+
+    cout<<endl;
+    for (int Z=0; Z<N; Z++)
+    {
+        A2 = A + (Z*B);
+        A1 = A1 + A2;
+        cout<<A2;
+
+        if (Z<N-1)
+        {
+            cout<<" + ";
+        }
+        else
+        {
+            cout<<" = ";
+        }
+    }
+    cout << A1;
+}
+
+
+
+void selisih (double F, double S)
+{
+    if (pil==1)
+    {
+    sel = S -F;
+    }
+    else
+    {
+        sel = S/F;
+    }
+    cout << "Selisih / Rasio dari kedua bilangan tersebut adalah : " <<sel;
+    cout << endl;
+}
+void geometri (double A, double B, double N)
+{
+    double A1=0, A2, UN;
+    UN = A*pow(B,(N-1));
+    cout << "Nilai pada deret ke-" << N << " adalah "<< UN<< endl;
+    for(int Z=0; Z<N; Z++)
+    {
+        cout << A*pow(B,Z) << " ";
+    }
+    cout << endl;
+    for(int Z=0; Z<N; Z++)
+    {
+        A2 = A*pow(B,Z);
+        A1 = A1 + A2;
+        cout << A2;
+
+        if (Z<N-1)
+        {
+            cout<<" + ";
+        }
+        else
+        {
+            cout<<" = ";
+        }
+    }
+    cout << A1;
+
+}
+
+int main()
+{
+    double  N, F, S;
+    char CEK;
+    cout << "PILIHAN MENU" << endl;
+
+    do
+    {
+        cout << "1. Deret Aritmatika"<< endl;
+        cout << "2. Deret Geometri"<< endl;
+        cout << "Pilihan : ";
+        cin >> pil;
+
+        if(pil==1)
+            {
+                cout << "Masukan Nilai Pertama Deret : ";
+                cin >> F;
+                cout << "Masukan Nilai Kedua Deret : ";
+                cin >> S;
+                selisih(F,S);
+                cout << "Masukan Nilai ke N yang ingin dicari : ";
+                cin >> N;
+                aritmatika(F,sel,N);
+            }
+
+         else if(pil==2)
+
+            {
+                cout << "Masukan Nilai Awal : ";
+                cin >> F;
+                cout << "Masukan Nilai Kedua ";
+                cin >> S;
+                selisih(F,S);
+                cout << "Masukan Nilai ke N yang ingin dicari : ";
+                cin >> N;
+                geometri(F,sel,N);
+            }
+    cout << endl << endl;
+
+    cout << "Hitung Lagi Y/N ? ";
+    cin >> CEK;
+    if (CEK=='n')
+        break;
+
+}
+while((pil!=1||2)&&(CEK=='y'));
+
+}
